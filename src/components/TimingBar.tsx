@@ -1,5 +1,5 @@
 import { CSSProperties, useEffect, useMemo, useRef } from "react";
-import { useStateMachineStore, StateMachineInterface, PintaState, StateInfo } from '../contexts/StateMachineContext';
+import { useStateMachineStore, StateMachineInterface, PintaState } from '../contexts/StateMachineContext';
 
 export interface TimingBarProps {
     title: string,

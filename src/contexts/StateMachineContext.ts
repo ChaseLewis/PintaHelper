@@ -1,4 +1,4 @@
-import { create, State } from 'zustand';
+import { create } from 'zustand';
 import { AudioEvent } from '../utils/Timing';
 
 export enum PintaState {

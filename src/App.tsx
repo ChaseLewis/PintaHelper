@@ -1,15 +1,12 @@
 import { useAudioStore } from './contexts/AudioAnalyzer';
 import { FrequencyVisualizer} from './components/FrequencyVisualizer';
-import pintaImageUrl from './assets/img/PintaFlag.webp';
-import './App.css'
 import { useEffect } from 'react';
-import { PintaState, useStateMachineStore } from './contexts/StateMachineContext';
-import { TimingBar } from './components/TimingBar';
-import { Select } from 'antd';
+import { useStateMachineStore } from './contexts/StateMachineContext';
 import { PintaMap } from './components/PintaMap';
 import { LootSelector } from './components/LootSelector';
 import { TimingSection } from './components/TimingSection';
 import { Settings } from './components/Settings';
+import './App.css';
 
 function App() {
 

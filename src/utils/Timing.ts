@@ -71,12 +71,7 @@ export interface ItemTiming {
     windowSeconds: number
 }
 
-
-
-const BPM = 138;
-const TONE_DURATION = 0.35;
 const PEAK_MERGE_THREHOLD = 2;
-
 const DEFAULT_WINDOW_PERIOD = 0.1;
 
 export const ItemTimingOptionValues: ItemTiming[] = [

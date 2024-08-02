@@ -1,7 +1,7 @@
 import { useRef, useEffect, CSSProperties, useMemo } from 'react';
 import { AudioStoreInterface, useAudioStore } from '../contexts/AudioAnalyzer';
 import { AudioEvent, DetectFingerprint, FindPeaks, FingerPrintLookup, FrequencyToIndex, Peak } from '../utils/Timing';
-import { PintaState, StateMachineInterface, useStateMachineStore } from '../contexts/StateMachineContext';
+import { StateMachineInterface, useStateMachineStore } from '../contexts/StateMachineContext';
 
 export interface FrequencyVisualizerProps {
 

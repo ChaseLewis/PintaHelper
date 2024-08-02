@@ -7,19 +7,19 @@ export interface UIInterface {
     update: (method: (state: UIInterface) => UIInterface) => void
 }
 
-const persistToUri = (state: UIInterface) => {
-    const searchParams = new URLSearchParams();
-    if(state.selectedArea)
-    {
-        searchParams.append("area",state.selectedArea.toString());
-    }
+// const persistToUri = (state: UIInterface) => {
+//     const searchParams = new URLSearchParams();
+//     if(state.selectedArea)
+//     {
+//         searchParams.append("area",state.selectedArea.toString());
+//     }
     
-    if(state.selectedItem) {
-        searchParams.append("item",state.selectedItem.item);
-    }
+//     if(state.selectedItem) {
+//         searchParams.append("item",state.selectedItem.item);
+//     }
 
-    location.search = searchParams.toString();
-}
+//     location.search = searchParams.toString();
+// }
 
 export const useUIStore = create<UIInterface>((set) => ({
    selectedArea: 22,

@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 
 const audioContext = new AudioContext();
-const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
 
 export interface AudioStoreInterface {
     running: boolean,

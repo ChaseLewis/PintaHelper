@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo } from "react";
 import { useUIStore } from "../contexts/UIContext"
 import { Select } from "antd";
-import { DEFAULT_EVENT_MAP, DEFAULT_ITEM_MAP } from "../utils/Loot";
+import { DEFAULT_ITEM_MAP } from "../utils/Loot";
 
 export const LootSelector = () => {
 
