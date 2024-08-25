@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import pintaMapImageUrl from '../assets/img/PintasQuestMap.webp';
 import pintaNumberedImageUrl from '../assets/img/PintasQuestNumberedMap.webp';
 import { useUIStore } from '../contexts/UIContext';
+import { DEFAULT_ITEM_MAP } from '../utils/Loot';
 
 export interface PintaMapProps {
     displayNumber?: boolean
@@ -35,6 +36,33 @@ export const PintaMap = (props: PintaMapProps) => {
         uiStore.updateSelectedArea(boxID);
     }
 
+    const unmappedAreas = useMemo(() => {
+
+        const unmappedAreaDivs = [];
+        for(let i = 1;i <= 42;i++) {
+            if(DEFAULT_ITEM_MAP[i]) {
+                continue;
+            }
+
+            const index = i - 1;
+            const X = Math.floor(index / 6);
+            const Y = 5 - Math.max(index - X*6,0);
+
+            unmappedAreaDivs.push(<div 
+                style={{ 
+                    background: "rgba(20,20,20,0.7)", 
+                    width: "calc(100% / 7)", 
+                    height: "calc(100% / 6)", 
+                    position: "absolute", 
+                    left: `calc( ${X} * 100% / 7)`, 
+                    top: `calc(${Y} * 100% / 6 - ${Y}px)` 
+                }}
+            />) as React.CSSProperties;
+        }
+
+        return unmappedAreaDivs;
+    },[]);
+
     const highlightStyle = useMemo(() => {
         const index = uiStore.selectedArea - 1;
         const X = Math.floor(index / 6);
@@ -55,6 +83,7 @@ export const PintaMap = (props: PintaMapProps) => {
         <div style={{ position: "relative" }}>
             <img src={pintaMapImageUrl} title="Pinta Quest Map" style={pintaMapImageStyle} onClick={onClick} />
             <img src={pintaNumberedImageUrl} title="Pinta Quest Map With Numbers" style={pintaNumberedMapImageStyle} onClick={onClick} />
+            {unmappedAreas}
             <div style={highlightStyle}/>   
         </div>
     </div>

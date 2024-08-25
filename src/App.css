@@ -22,7 +22,7 @@ html, body, #root {
 .panel {
   height: 90%;
   width: 80%;
-  max-width: 350px;
+  max-width: 500px;
   border-radius: 10px;
   padding: 20px;
   background-color: var(--pintaSilver);

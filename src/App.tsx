@@ -7,6 +7,7 @@ import { LootSelector } from './components/LootSelector';
 import { TimingSection } from './components/TimingSection';
 import { Settings } from './components/Settings';
 import './App.css';
+import { Button } from 'antd';
 
 function App() {
 
@@ -53,21 +54,30 @@ function App() {
           <div>State: {stateStore.currentState}</div>
         </div>}
         <PintaMap displayNumber />
-        <div className="sound-row">
-          <FrequencyVisualizer
-            width={200}
-            height={70}
-            style={{
-              width: "100%",
-              height: "100%"
-            }}
-          />
-        </div>
-        <TimingSection />
-        <div className="timing-selector">
-            <LootSelector />
-        </div>
-        <Settings />
+        {audioStore.running ? 
+          <>
+            <div className="sound-row">
+              <FrequencyVisualizer
+                width={200}
+                height={70}
+                style={{
+                  width: "100%",
+                  height: "100%"
+                }}
+              />
+            </div>
+            <TimingSection />
+            <div className="timing-selector">
+                <LootSelector />
+            </div>
+            <Settings />
+          </>
+          :
+          <>
+            <Button type="default" onClick={() => audioStore.start()}>Start</Button>
+          </>
+        }
+
         <div style={{ flex: 1 }} />
       </div>
     </>

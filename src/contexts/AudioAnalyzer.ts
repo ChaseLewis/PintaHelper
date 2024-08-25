@@ -1,7 +1,5 @@
 import { create } from 'zustand';
 
-const audioContext = new AudioContext();
-
 export interface AudioStoreInterface {
     running: boolean,
     context: AudioContext,
@@ -18,14 +16,14 @@ export interface AudioStoreInterface {
 
 export const useAudioStore = create<AudioStoreInterface>((set) => ({
     running: false,
-    context: audioContext,
+    context: new AudioContext(),
     stream: null,
     source: null,
     analyzer: null,
     dataArray: null,
     minFrequency: 4000,
     maxFrequency: 10000,
-    minAmplitude: 70,
+    minAmplitude: 75,
     sampleRate: function () {
         return this.context?.sampleRate ?? 48000;
     },

@@ -8,10 +8,11 @@ export const Settings = () => {
         <div>
             <Form
                 layout="inline"
+                style={{ width: "100%" }}
             >
                 <Form.Item
-                    vertical
                     label="Drift"
+                    style={{ flex: "1" }}
                 >
                     <InputNumber 
                         value={stateStore.drift} 
@@ -19,11 +20,12 @@ export const Settings = () => {
                         onChange={(value) => {
                             stateStore.updateDrift(value || 0);
                         }}
+                        style={{ width: "100%", marginLeft: '5px' }}
                     />
                 </Form.Item>
                 <Form.Item
-                    vertical
                     label="Anticipation"
+                    style={{ flex: "1" }}
                 >
                     <InputNumber 
                         value={stateStore.anticipation} 
@@ -31,6 +33,7 @@ export const Settings = () => {
                         onChange={(value) => {
                             stateStore.updateAnticipation(value || 0);
                         }}
+                        style={{ width: "100%", marginLeft: '5px' }}
                     />
                 </Form.Item>
             </Form>
