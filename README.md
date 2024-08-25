@@ -9,7 +9,6 @@ https://github.com/RikkiGibson/pinta-timing-helper
 # Running Locally
 
 - Need to have node.js installed. I am using v18.3.0 but any reasonably modern version should work.
-
 - `npm install`
 - `npm run dev`
 - Open the link displayed by vite.
