@@ -32,11 +32,7 @@ export const PintaMap = (props: PintaMapProps) => {
         const boxY = Math.floor(normY/boxYDim);
         const boxID = boxX*6 + boxY + 1;
 
-        uiStore.update((state) => {
-            return { ...state, selectedArea: boxID  };
-        });
-        
-        console.log({ boxID });
+        uiStore.updateSelectedArea(boxID);
     }
 
     const highlightStyle = useMemo(() => {
