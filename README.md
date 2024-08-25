@@ -14,7 +14,7 @@ https://github.com/RikkiGibson/pinta-timing-helper
 # Changes
 - The main goal of this tool was to configure a more visual indicator for where the drops are. His original code relied on metronome like beats which was difficult to intuit for someone like myself who is not musically inclined.
 
-- Map based selection. The selection of items differs from map area to map area, and the goal is to eventually have each map location mention all important locations. A couple areas appear to have greater than the 64ms window    most items have, these areas are preferred when found.
+- Map based selection. The selection of items differs from map area to map area, and the goal is to eventually have each map location mention all important locations. A couple areas appear to have greater than the 64ms window most items have, these areas are preferred when found.
 
 # Todo Improvements
 - UI is still very pre-Alpha I'm making this public so Sanic and others can mess with it while I finish. 
