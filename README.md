@@ -6,6 +6,14 @@ Pinta's Quest is a VMU game associated with the Dreamcast version of Skies of Ar
 SanicDelphinus of the Skies of Arcadia Speedrun community pioneered most of these manipulations and created the original code this is based off of here. 
 https://github.com/RikkiGibson/pinta-timing-helper
 
+# Running Locally
+
+- Need to have node.js installed. I am using v18.3.0 but any reasonably modern version should work.
+
+- `npm install`
+- `npm run dev`
+- Open the link provided by vite in your browser.
+
 # Changes
 - The main goal of this tool was to configure a more visual indicator for where the drops are. His original code relied on metronome like beats which was difficult to intuit for someone like myself who is not musically inclined.
 
