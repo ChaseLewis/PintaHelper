@@ -26,7 +26,9 @@ export interface StateMachineInterface {
     currentState: PintaState,
     stateInfo: Map<PintaState,StateInfo>,
     transition: (event: AudioEvent|null) => void,
-    update: (method: (state: StateMachineInterface) => StateMachineInterface) => void
+    update: (method: (state: StateMachineInterface) => StateMachineInterface) => void,
+    updateDrift: (drift: number) => void,
+    updateAnticipation: (anticipation: number) => void
 }
 
 export const useStateMachineStore = create<StateMachineInterface>((set) => ({
@@ -34,8 +36,8 @@ export const useStateMachineStore = create<StateMachineInterface>((set) => ({
     recordMax: false,
     beat: 138,
     pixelsPerSecond: 82,
-    anticipation: .125,
-    drift: 0,
+    anticipation: parseFloat(localStorage.getItem("pinta-anticipation") || ".134"),
+    drift: parseFloat(localStorage.getItem("pinta-drift") || "0"),
     stateInfo: new Map<PintaState,StateInfo>([
         [PintaState.WaitingForMenu, { state: PintaState.WaitingForMenu, startedTimestamp: -1.0, endTimestamp: -1.0 }],
         [PintaState.MenuOpen, { state: PintaState.MenuOpen, startedTimestamp: -1.0, endTimestamp: -1.0 }],
@@ -46,6 +48,27 @@ export const useStateMachineStore = create<StateMachineInterface>((set) => ({
     currentState: PintaState.WaitingForMenu,
     update: (method: (state: StateMachineInterface) => StateMachineInterface) => {
         set(method);
+    },
+    updateDrift: (drift: number) => {
+        if(isNaN(drift))
+        {
+            return;
+        }
+
+        localStorage.setItem("pinta-drift",drift.toString());
+        set((state) => {
+            return { ...state, drift };
+        });
+    },
+    updateAnticipation: (anticipation: number) => {
+        if(isNaN(anticipation))
+        {
+            return;
+        }
+        localStorage.setItem("pinta-anticipation",anticipation.toString());
+        set((state) => {
+            return { ...state, anticipation };
+        });
     },
     transition: function(event: AudioEvent|null) {
         if(!event) {
