@@ -118,7 +118,7 @@ const HandleMaxRecording = (previousPeaks: Peak[]|null,currentPeaks: Peak[],stat
     return null;
 }
 
-export const FrequencyVisualizer = (props: FrequencyVisualizerProps) => {;
+export const FrequencyVisualizer = (props: FrequencyVisualizerProps) => {
     const audioStore = useAudioStore();
     const stateStore = useStateMachineStore();
     const canvasRef = useRef<HTMLCanvasElement>(null);
