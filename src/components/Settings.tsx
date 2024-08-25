@@ -15,11 +15,9 @@ export const Settings = () => {
                 >
                     <InputNumber 
                         value={stateStore.drift} 
-                        min={-1} max={1} step={0.01} 
+                        min={-1} max={1} step={0.016} 
                         onChange={(value) => {
-                            stateStore.update((state) => {
-                                return { ...state, drift: value || 0 };
-                            });
+                            stateStore.updateDrift(value || 0);
                         }}
                     />
                 </Form.Item>
@@ -29,11 +27,9 @@ export const Settings = () => {
                 >
                     <InputNumber 
                         value={stateStore.anticipation} 
-                        min={0} max={1} step={0.01} 
+                        min={0} max={1} step={0.016} 
                         onChange={(value) => {
-                            stateStore.update((state) => {
-                                return { ...state, anticipation: value || 0 };
-                            });
+                            stateStore.updateAnticipation(value || 0);
                         }}
                     />
                 </Form.Item>
