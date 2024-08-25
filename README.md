@@ -1,3 +1,5 @@
+![Pinta's Quest Map](/app/src/assets/img/PintasQuestMap.webp)
+
 # Pinta's Quest
 Pinta's Quest is a VMU game associated with the Dreamcast version of Skies of Arcadia. The game drops can be manipulated via doing certain actions with given timing. This is a tool to help people with those timings to manipulate the desired drops.
 
