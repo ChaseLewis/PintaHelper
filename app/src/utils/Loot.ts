@@ -32,7 +32,7 @@ export const DEFAULT_ITEM_MAP: { [key: number]: ItemTiming[] }= {
         { event: "TradeShip", type: null, item: "3B->4B", min: 1, max: 1.1 },
         { event: "FoundItem", type: "A", item: "Eye of Truth", min: 1.150, max: 1.206 },
         { event: "FoundItem", type: "A", item: "Moonberry", min: 3.988, max: 4.066 },
-        { event: "FoundItem", type: "A", item: "Magillex Idol", min: 5.530, max: 5.630 }
+        { event: "FoundItem", type: "A", item: "Magillex Idol", min: 5.534, max: 5.630 }
     ],
     //Need to double check this
     15: [

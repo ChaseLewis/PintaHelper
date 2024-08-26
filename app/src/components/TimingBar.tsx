@@ -1,5 +1,6 @@
 import { CSSProperties, useEffect, useMemo, useRef } from "react";
 import { useStateMachineStore, StateMachineInterface, PintaState } from '../contexts/StateMachineContext';
+import { AudioEvent } from "../utils/Timing";
 
 export interface TimingBarProps {
     title: string,
@@ -102,10 +103,20 @@ export const TimingBar = (props: TimingBarProps) => {
                     timeInState = (stateInfo.endTimestamp - stateInfo.startedTimestamp)/1000.0;
                 } else {
                     timeInState = (performance.now() - stateInfo.startedTimestamp)/1000.0;
-                    // We should auto transition here so the user doesn't get screwed if the audio
-                    // fails to get picked up properlyl
-                    // if(timeInState > (duration + window + EXTRA_TIME)) {
-                        
+                    // We should auto transition here so the user doesn't get screwed if the audio fails to get picked up properly
+                    // if(timeInState >= (duration + window + EXTRA_TIME)) {
+                    //     switch(activeState)
+                    //     {
+                    //         case PintaState.MenuOpen:
+                    //             stateStore.transition(AudioEvent.CloseMenu);
+                    //             break;
+                    //         case PintaState.EventInProgress:
+                    //             stateStore.transition(AudioEvent.OpenMenu);
+                    //             break;
+                    //         case PintaState.TradeInProgress:
+                    //             stateStore.transition(AudioEvent.OpenMenu);
+                    //             break;
+                    //     }
                     // }
                 }
             }

@@ -69,11 +69,11 @@ export const PintaMap = (props: PintaMapProps) => {
         const Y = 5 - Math.max(index - X*6,0);
 
         return { 
-            outline: "2px solid red", 
+            outline: "3px solid red", 
             width: "calc(100% / 7 - 3px)", 
-            height: "calc(100% / 6 - 3px)", 
+            height: "calc(100% / 6 - 4px)", 
             position: "absolute", 
-            left: `calc( ${X} * 100% / 7 + ${1}px)`, 
+            left: `calc( ${X} * 100% / 7)`, 
             top: `calc(${Y} * 100% / 6 - ${Y-1}px + 1px)` 
         } as React.CSSProperties;
     },[uiStore.selectedArea]);
