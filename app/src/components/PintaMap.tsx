@@ -48,7 +48,8 @@ export const PintaMap = (props: PintaMapProps) => {
             const X = Math.floor(index / 6);
             const Y = 5 - Math.max(index - X*6,0);
 
-            unmappedAreaDivs.push(<div 
+            unmappedAreaDivs.push(<div
+                key={`pinta-mask-${i}`}
                 style={{ 
                     background: "rgba(20,20,20,0.7)", 
                     width: "calc(100% / 7)", 

@@ -24,12 +24,18 @@ const DrawTimingBar = (
     const windowLength = window*store.pixelsPerSecond
     const durationLength = store.pixelsPerSecond*(duration + store.drift);
     const extraLength = EXTRA_TIME*store.pixelsPerSecond;
-    const fillLength = Math.min(Math.round(timeInState*store.pixelsPerSecond),durationLength+windowLength+extraLength);
+    const fillLength = Math.min(Math.round(timeInState*store.pixelsPerSecond),durationLength+windowLength+extraLength+store.drift);
+    const totalLength = durationLength + windowLength + extraLength;
     //We need to find a way to shorten the timer by about 300 pixels
-
+    // console.log({
+    //     windowLength,
+    //     durationLength,
+    //     extraLength,
+    //     drift: store.drift
+    // })
     ctx.fillStyle = "rgb(180,180,180)";
-    ctx.fillRect(0,PADDING,durationLength,canvas.height-2*PADDING);
-    ctx.fillRect(durationLength+windowLength,PADDING,extraLength,canvas.height-2*PADDING);
+    ctx.fillRect(0,PADDING,totalLength,canvas.height-2*PADDING);
+    //ctx.fillRect(durationLength+windowLength,PADDING,extraLength,canvas.height-2*PADDING);
 
     ctx.fillStyle = "#00FF00";
     ctx.fillRect(durationLength,0,windowLength,canvas.height);
@@ -132,8 +138,8 @@ export const TimingBar = (props: TimingBarProps) => {
     },[]);
 
     const canvasWidth = useMemo(() => {
-        return stateStore.pixelsPerSecond*(props.duration + props.window + EXTRA_TIME);
-    },[props.duration,stateStore.pixelsPerSecond]);
+        return stateStore.pixelsPerSecond*(props.duration + props.window + EXTRA_TIME + stateStore.drift);
+    },[props.duration,stateStore.pixelsPerSecond,stateStore.drift]);
 
     const canvasStyle = useMemo(() => {
         

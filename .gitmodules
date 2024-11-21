@@ -1,0 +1,6 @@
+[submodule "detector/noise/ms-snsd"]
+	path = detector/noise/ms-snsd
+	url = https://github.com/microsoft/MS-SNSD.git
+[submodule "detector/noise/ybss-200"]
+	path = detector/noise/ybss-200
+	url = https://github.com/project-noise-2019/ybss-200.git

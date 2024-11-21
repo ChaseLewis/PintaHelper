@@ -59,6 +59,13 @@ export const LootSelector = () => {
             return;
         }
 
+        const lastItem = uiStore.getLastSelectedItem(uiStore.selectedArea);
+        if(lastItem) {
+            uiStore.update((state) => {
+                return {...state, selectedItem: lastItem };
+            });
+            return;
+        }
         if(items.length > 0) {
             uiStore.update((state) => {
                 return {...state, selectedItem: items[0] };
@@ -80,9 +87,7 @@ export const LootSelector = () => {
             value={uiStore.selectedItem?.item}
             onChange={(v,o) => {
                 console.log({ v, o });
-                uiStore.update((state) => {
-                    return { ...state, selectedItem: o.data };
-                });
+                uiStore.updatedSelectedItem(o.value);
             }}
             options={options}
             style={{ width: "100%"}}
